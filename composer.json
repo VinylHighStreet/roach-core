@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": "~8.2.0 || ~8.3.0",
+        "php": "~8.2.0 || ~8.3.0 || ~8.4.0",
         "guzzlehttp/guzzle": "^7.8.0",
         "jakeasmith/http_build_url": "^1.0.1",
         "league/container": "^4.2",
@@ -32,10 +32,9 @@
         "http-interop/http-factory-guzzle": "^1.2",
         "phpunit/phpunit": "^10.4.2",
         "psr/http-message": "^1.1.0",
-        "roave/security-advisories": "dev-latest",
         "slim/slim": "^4.12",
         "spatie/browsershot": "^3.60.0",
-        "vimeo/psalm": "^5.16"
+        "vimeo/psalm": "^0.3.14"
     },
     "suggest": {
         "spatie/browsershot": "Required to execute Javascript in spiders"
