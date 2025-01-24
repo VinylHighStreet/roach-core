@@ -28,7 +28,7 @@ package for Python.
 Install the package via composer
 
 ```bash
-composer require roach-php/core
+composer require vhs/roach-core
 ```
 
 ## Documentation
