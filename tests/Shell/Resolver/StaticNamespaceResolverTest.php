@@ -27,9 +27,9 @@ final class StaticNamespaceResolverTest extends TestCase
     {
         $resolver = new StaticNamespaceResolver();
 
-        $result = $resolver->resolveSpiderNamespace('RoachPHP\Tests\Fixtures\TestSpider');
+        $result = $resolver->resolveSpiderNamespace(\RoachPHP\Tests\Fixtures\TestSpider::class);
 
-        self::assertSame('RoachPHP\Tests\Fixtures\TestSpider', $result);
+        self::assertSame(\RoachPHP\Tests\Fixtures\TestSpider::class, $result);
     }
 
     public function testThrowsExceptionIfTheProvidedSpiderClassDoesNotExist(): void

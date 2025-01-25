@@ -62,9 +62,7 @@ final class FakeHandlerTest extends TestCase
 
     public function testCallsConfiguredResponseCallbackIfProvided(): void
     {
-        $handler = new FakeHandler(static function (Response $response) {
-            return $response->withMeta('::key::', '::value::');
-        });
+        $handler = new FakeHandler(static fn(Response $response) => $response->withMeta('::key::', '::value::'));
         $response = $this->makeResponse($this->makeRequest());
 
         $result = $handler->handleResponse($response);
@@ -76,9 +74,7 @@ final class FakeHandlerTest extends TestCase
     {
         $handler = new FakeHandler(
             null,
-            static function (ItemInterface $item, Response $response) {
-                return $item->set('::key::', '::new-value::');
-            },
+            static fn(ItemInterface $item, Response $response) => $item->set('::key::', '::new-value::'),
         );
         $response = $this->makeResponse($this->makeRequest());
         $item = new Item(['::key::' => '::old-value::']);

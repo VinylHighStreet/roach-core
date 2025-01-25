@@ -36,8 +36,8 @@ final class Downloader
     private array $requests = [];
 
     public function __construct(
-        private ClientInterface $client,
-        private EventDispatcherInterface $eventDispatcher,
+        private readonly ClientInterface $client,
+        private readonly EventDispatcherInterface $eventDispatcher,
     ) {
     }
 

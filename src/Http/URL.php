@@ -13,17 +13,17 @@ declare(strict_types=1);
 
 namespace RoachPHP\Http;
 
-final class URL
+final readonly class URL
 {
     public function __construct(
-        public readonly ?string $scheme,
-        public readonly ?string $host,
-        public readonly ?int $port,
-        public readonly ?string $username,
-        public readonly ?string $password,
-        public readonly ?string $path,
-        public readonly Query $query,
-        public readonly ?string $fragment,
+        public ?string $scheme,
+        public ?string $host,
+        public ?int $port,
+        public ?string $username,
+        public ?string $password,
+        public ?string $path,
+        public Query $query,
+        public ?string $fragment,
     ) {
     }
 

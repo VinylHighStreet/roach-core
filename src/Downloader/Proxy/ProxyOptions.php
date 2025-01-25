@@ -13,15 +13,15 @@ declare(strict_types=1);
 
 namespace RoachPHP\Downloader\Proxy;
 
-final class ProxyOptions
+final readonly class ProxyOptions
 {
     /**
      * @param array<int, string> $excludedDomains
      */
     public function __construct(
-        private readonly ?string $httpProxyURL = null,
-        private readonly ?string $httpsProxyURL = null,
-        private readonly array $excludedDomains = [],
+        private ?string $httpProxyURL = null,
+        private ?string $httpsProxyURL = null,
+        private array $excludedDomains = [],
     ) {
     }
 

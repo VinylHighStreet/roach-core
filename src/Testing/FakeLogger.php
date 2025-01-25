@@ -87,9 +87,7 @@ final class FakeLogger implements LoggerInterface
             return false;
         }
 
-        return !empty(\array_filter($this->logs[$level], static function (array $log) use ($message, $context) {
-            return $log['message'] === $message
-                && (null === $context || $log['context'] === $context);
-        }));
+        return !empty(\array_filter($this->logs[$level], static fn(array $log) => $log['message'] === $message
+            && (null === $context || $log['context'] === $context)));
     }
 }

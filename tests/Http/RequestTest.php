@@ -65,9 +65,7 @@ final class RequestTest extends TestCase
 
         self::assertFalse($request->hasHeader('X-Custom-Header'));
 
-        $request->withPsrRequest(static function (Request $guzzleRequest) {
-            return $guzzleRequest->withHeader('X-Custom-Header', '::value::');
-        });
+        $request->withPsrRequest(static fn(Request $guzzleRequest) => $guzzleRequest->withHeader('X-Custom-Header', '::value::'));
 
         self::assertTrue($request->hasHeader('X-Custom-Header'));
         self::assertSame(['::value::'], $request->getHeader('X-Custom-Header'));

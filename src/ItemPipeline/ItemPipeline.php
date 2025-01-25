@@ -26,7 +26,7 @@ final class ItemPipeline implements ItemPipelineInterface
      */
     private array $processors = [];
 
-    public function __construct(private EventDispatcherInterface $eventDispatcher)
+    public function __construct(private readonly EventDispatcherInterface $eventDispatcher)
     {
     }
 

@@ -60,7 +60,7 @@ final class DefaultNamespaceResolverDecoratorTest extends TestCase
     {
         $result = $this->getResolver($nonNormalizedNamespace)->resolveSpiderNamespace('TestSpider');
 
-        self::assertSame('RoachPHP\Tests\Fixtures\TestSpider', $result);
+        self::assertSame(\RoachPHP\Tests\Fixtures\TestSpider::class, $result);
     }
 
     public static function defaultNamespaceProvider(): iterable
@@ -91,7 +91,7 @@ final class DefaultNamespaceResolverDecoratorTest extends TestCase
     {
         $result = $this->getResolver()->resolveSpiderNamespace($nonNormalizedSpiderName);
 
-        self::assertSame('RoachPHP\Tests\Fixtures\TestSpider', $result);
+        self::assertSame(\RoachPHP\Tests\Fixtures\TestSpider::class, $result);
     }
 
     public static function spiderNameProvider(): iterable

@@ -18,7 +18,7 @@ use RoachPHP\Http\Response;
 use RoachPHP\ItemPipeline\Item;
 use RoachPHP\ItemPipeline\ItemInterface;
 
-final class ParseResult
+final readonly class ParseResult
 {
     private function __construct(private ItemInterface|Request $value)
     {

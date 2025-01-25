@@ -15,12 +15,12 @@ namespace RoachPHP\Downloader\Proxy;
 
 use RoachPHP\Http\Request;
 
-final class Proxy
+final readonly class Proxy
 {
     /**
      * @param array<string, ProxyOptions> $proxyList
      */
-    public function __construct(private readonly array $proxyList = [])
+    public function __construct(private array $proxyList = [])
     {
     }
 

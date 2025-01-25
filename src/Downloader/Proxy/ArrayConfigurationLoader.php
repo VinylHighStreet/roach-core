@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace RoachPHP\Downloader\Proxy;
 
-final class ArrayConfigurationLoader implements ConfigurationLoaderInterface
+final readonly class ArrayConfigurationLoader implements ConfigurationLoaderInterface
 {
     /**
      * @param array<string, array{http?: string, https?: string, no?: array<int, string>}|string>|string $params
      */
-    public function __construct(private readonly array|string $params)
+    public function __construct(private array|string $params)
     {
     }
 

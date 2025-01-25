@@ -27,7 +27,7 @@ final class ArrayRequestScheduler implements RequestSchedulerInterface
 
     private \DateTimeImmutable $nextBatchReadyAt;
 
-    public function __construct(private ClockInterface $clock)
+    public function __construct(private readonly ClockInterface $clock)
     {
         $this->nextBatchReadyAt = $this->clock->now();
     }

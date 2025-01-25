@@ -20,7 +20,7 @@ use RoachPHP\Http\Response;
 /**
  * @internal
  */
-final class DownloaderMiddlewareAdapter implements DownloaderMiddlewareInterface
+final readonly class DownloaderMiddlewareAdapter implements DownloaderMiddlewareInterface
 {
     private function __construct(
         private RequestMiddlewareInterface|ResponseMiddlewareInterface $middleware,

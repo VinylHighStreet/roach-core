@@ -60,7 +60,7 @@ final class SpiderTestCase extends IntegrationTestCase
 
             protected function initialRequests(): array
             {
-                return [new Request('GET', 'http://localhost:8000/test1', [$this, 'parse'])];
+                return [new Request('GET', 'http://localhost:8000/test1', $this->parse(...))];
             }
         };
 
@@ -87,7 +87,7 @@ final class SpiderTestCase extends IntegrationTestCase
                         // Use initialRequest from passed request context as a heuristic
                         // if context can be accessed.
                         $this->context['initialRequest'],
-                        [$this, 'parse'],
+                        $this->parse(...),
                     ), ];
             }
         };

@@ -21,7 +21,7 @@ final class TestCustomItemProcessor extends CustomItemProcessor
     /**
      * @param array<int, class-string<ItemInterface>> $handledItemClasses
      */
-    public function __construct(private array $handledItemClasses)
+    public function __construct(private readonly array $handledItemClasses)
     {
     }
 

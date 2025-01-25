@@ -80,8 +80,6 @@ abstract class AbstractSpider implements SpiderInterface
      */
     protected function initialRequests(): array
     {
-        return \array_map(function (string $url) {
-            return new Request('GET', $url, [$this, 'parse']);
-        }, $this->configuration->startUrls);
+        return \array_map(fn(string $url) => new Request('GET', $url, $this->parse(...)), $this->configuration->startUrls);
     }
 }

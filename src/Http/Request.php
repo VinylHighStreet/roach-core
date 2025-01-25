@@ -37,17 +37,14 @@ final class Request implements DroppableInterface
     private ?Response $response = null;
 
     /**
+     * @param callable(Response): \Generator<ParseResult> $parseMethod
+     */
+    public function __construct(string $method, string $uri, callable $parseMethod, /**
      * An array of Guzzle request options.
      * See https://docs.guzzlephp.org/en/stable/request-options.html.
      */
-    private array $options;
-
-    /**
-     * @param callable(Response): \Generator<ParseResult> $parseMethod
-     */
-    public function __construct(string $method, string $uri, callable $parseMethod, array $options = [])
+    private array $options = [])
     {
-        $this->options = $options;
         $this->psrRequest = new GuzzleRequest($method, $uri);
         $this->parseCallback = \Closure::fromCallable($parseMethod);
         $this->url = URL::parse($uri);

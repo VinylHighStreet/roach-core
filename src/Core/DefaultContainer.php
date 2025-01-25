@@ -35,7 +35,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 /**
  * @internal
  */
-final class DefaultContainer implements ContainerInterface
+final readonly class DefaultContainer implements ContainerInterface
 {
     private Container $container;
 

@@ -23,7 +23,7 @@ use RoachPHP\Spider\Middleware\SpiderMiddlewareAdapter;
 use RoachPHP\Spider\SpiderInterface;
 use RoachPHP\Spider\SpiderMiddlewareInterface;
 
-final class RunFactory
+final readonly class RunFactory
 {
     public function __construct(private ContainerInterface $container)
     {
@@ -57,9 +57,7 @@ final class RunFactory
      */
     private function buildDownloaderMiddleware(array $downloaderMiddleware): array
     {
-        return \array_map(function (array|string $middleware) {
-            return DownloaderMiddlewareAdapter::fromMiddleware($this->buildConfigurable($middleware));
-        }, $downloaderMiddleware);
+        return \array_map(fn(array|string $middleware) => DownloaderMiddlewareAdapter::fromMiddleware($this->buildConfigurable($middleware)), $downloaderMiddleware);
     }
 
     /**
@@ -79,9 +77,7 @@ final class RunFactory
      */
     private function buildResponseMiddleware(array $handlers): array
     {
-        return \array_map(function (array|string $handler) {
-            return SpiderMiddlewareAdapter::fromMiddleware($this->buildConfigurable($handler));
-        }, $handlers);
+        return \array_map(fn(array|string $handler) => SpiderMiddlewareAdapter::fromMiddleware($this->buildConfigurable($handler)), $handlers);
     }
 
     /**
@@ -91,9 +87,7 @@ final class RunFactory
      */
     private function buildExtensions(array $extensions): array
     {
-        return \array_map(function (array|string $extension) {
-            return $this->buildConfigurable($extension);
-        }, $extensions);
+        return \array_map(fn(array|string $extension) => $this->buildConfigurable($extension), $extensions);
     }
 
     /**

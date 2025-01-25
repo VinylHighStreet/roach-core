@@ -18,8 +18,8 @@ use GuzzleHttp\Exception\GuzzleException;
 final class RequestException extends \Exception
 {
     public function __construct(
-        private Request $request,
-        private GuzzleException $reason,
+        private readonly Request $request,
+        private readonly GuzzleException $reason,
     ) {
         parent::__construct('An exception occurred while sending a request', previous: $reason);
     }

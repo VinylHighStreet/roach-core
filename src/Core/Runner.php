@@ -17,7 +17,7 @@ use Psr\Container\ContainerInterface;
 use RoachPHP\Spider\Configuration\Overrides;
 use RoachPHP\Spider\SpiderInterface;
 
-final class Runner implements RunnerInterface
+final readonly class Runner implements RunnerInterface
 {
     public function __construct(
         private ContainerInterface $container,

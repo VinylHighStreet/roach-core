@@ -16,7 +16,7 @@ namespace RoachPHP\Shell\Resolver;
 use RoachPHP\Shell\InvalidSpiderException;
 use RoachPHP\Spider\SpiderInterface;
 
-final class DefaultNamespaceResolverDecorator implements NamespaceResolverInterface
+final readonly class DefaultNamespaceResolverDecorator implements NamespaceResolverInterface
 {
     private string $defaultNamespace;
 

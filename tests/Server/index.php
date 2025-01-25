@@ -93,18 +93,16 @@ $app->get('/test2', static function (Request $request, Response $response, $args
     return $response;
 });
 
-$app->get('/test3', static function (Request $request, Response $response, $args) {
-    return $response;
-});
+$app->get('/test3', static fn(Request $request, Response $response, $args) => $response);
 
 $app->get('/javascript', static function (Request $request, Response $response, $args) {
-    $body = <<<'HTML'
-<div id="content">Loading...</div>
-<script>
-    const content = document.getElementById('content');
-    content.innerHTML = '<h1>Headline</h1><p>I was loaded via Javascript!</p>'
-</script>
-HTML;
+    $body = <<<'HTML_WRAP'
+    <div id="content">Loading...</div>
+    <script>
+        const content = document.getElementById('content');
+        content.innerHTML = '<h1>Headline</h1><p>I was loaded via Javascript!</p>'
+    </script>
+    HTML_WRAP;
 
     $response->getBody()->write($body);
 
